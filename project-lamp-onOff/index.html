@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Lâmpada </title>
+</head>
+<body>
+    
+    <img src="./lampada-off.jpg" onmouseover="on()" onmouseout="off()" id="lampada">
+
+    <script src="./jquery-3.5.1.min.js"></script>
+    <script>
+
+
+            // const on = () => {
+            //     document.getElementById("lampada").src = './lampada-on.jpg'
+            //     // console.log("on")
+
+            // }
+            // const off = () => {
+            //     document.getElementById("lampada").src = './lampada-off.jpg'
+            // }
+                  
+            $(document).ready(function(){
+                $("#lampada").mouseenter(function(){
+                    $("#lampada").attr("src","./lampada-on.jpg")
+                })
+                $("#lampada").mouseout(function(){
+                    $("#lampada").attr("src","./lampada-off.jpg")
+                })
+                
+            })
+            
+    </script>
+</body>
+</html>
