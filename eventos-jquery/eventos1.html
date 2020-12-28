@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos #1</title>
+</head>
+<body>
+    <h1>Eventos #1</h1>
+    <div id="posicao"></div>
+    <div id="cliques">Cliques: 0</div>
+    <input type="text" placeholder="Cor de Background" id="corBackground">
+
+
+    <script src="./jquery-3.5.1.min.js"></script>
+    <script>
+        function mostrarPosicaoMouse(e){
+            $("#posicao").html(`x: ${e.clientX} y: ${e.clientY}`)
+        }
+
+        $("body").on("mousemove", mostrarPosicaoMouse)
+        
+        let cliques =0
+
+        $("body").click(e => {
+            $("#cliques").html(`Cliques: ${++cliques}`)
+        })
+
+        const backgroundOriginal = $("body").css("background-color")
+
+        $("input").keyup(function(e){
+            const valor = $(this).val()
+            if (valor.match(/#[\da-fA-F]{3,6}/)) {
+                $("body").css("background-color", valor)
+            } else {
+                $("body").css("background-color", backgroundOriginal)
+            }
+        })
+    </script>
+</body>
+</html>
