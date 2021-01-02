@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos #2</title>
+    <style>
+        .destaque{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eventos #2</h1>
+    <div id="div1">1</div>
+    <div id="resultado1">?</div>
+    <br>
+    <input type="text" placeholder="digite e selecione">
+    <div id="resultado2">?</div>
+
+
+    <script src="./jquery-3.5.1.min.js"></script>
+    <script>
+        
+           const alternarDestaque = () => $("#div1").toggleClass("destaque")
+
+           //$("#div1").on("mouseenter mouseleave", alternarDestaque)
+           //ou
+           $("#div1").hover(alternarDestaque, alternarDestaque)
+
+           //one: chama apenas 1 vez
+           $("#div1").one("mouseenter", e => alert("Aviso IMPORTANTE: Obrigado!"))
+
+           $("#div1").dblclick(e => $("#div1").fadeOut(1000).fadeIn(1000))
+
+           $(window).resize(function(e){
+               const l = $(window).width()
+               const a = $(window).height()
+               $("#resultado1").html(`Largura: ${l} e Altura: ${a}`)
+           })
+    </script>
+</body>
+</html>
